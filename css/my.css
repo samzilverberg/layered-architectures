@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.align-left {
+    text-align: left;
+}
+
 .centered{
     align-items: center
 }

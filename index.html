@@ -2,420 +2,600 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Layered Architectures</title>
+  <title>Layered Architectures</title>
 
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css">
-	<link rel="stylesheet" href="css/my.css">
-<!--	 <link rel="stylesheet" href="css/print/pdf.css">-->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <link rel="stylesheet" href="css/my.css">
+  <!--	 <link rel="stylesheet" href="css/print/pdf.css">-->
 
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/monokai.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
 
-	<!-- Printing and PDF exports -->
-	<script>
+  <!-- Printing and PDF exports -->
+  <script>
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.type = 'text/css';
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+  </script>
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-				<h1>Layered Architectures</h1>
-				<a
-					href="https://github.com/samzilverberg/layered-architectures">https://github.com/samzilverberg/layered-architectures</a>
-			</section>
-
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
-
-					## Evolution of layers
-
-					in the beginning there was chaos
-
-					and then we started ordering it into layers...
-
-
-
-				</script>
-
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
-
-
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
-
-					## Layered Architecture
-
-					Layering is a common practice to separate and organise code units by their role/responsibilities in the system.
-
-					![](img/layered_layers.png)
-				</script>
-
-				<aside class="notes" data-markdown>
-					- layers on bottom have no knowledge of the layers above using it.
-					- notes 2
-				</aside>
-			</section>
-
-			<section>
-					<!-- .slide: text-align= left -->
-				<div class="row centered">
-					<div class="col60"  style="text-align: left;">
-						<h5>In a layered system, each layer:</h5>
-
-						<ul>
-							<li>Depends on the layers beneath it</li>
-							<li>Is independent of the layers on top of it</li>
-						</ul>
-					</div>
-					<div class="col40">
-						<img src="img/ddd_layers.png" />
-					</div>
-				</div>
-
-				<aside class="notes" data-markdown>
-					- layers on bottom have no knowledge of the layers above using it.
-					- used in a strict way: a layer only knows the layer directly beneath it
-					- used in a flexible way: a layer can access any layer beneath it
-					- flexible: helps avoid "proxy" classes in layers that do nothing
-				</aside>
-			</section>
-
-			<section>
-					<!-- .slide: text-align= left -->
-				<div class="row centered">
-					<div class="col60"  style="text-align: left;">
-						<h5>The Good:</h5>
-						<ul>
-							<li>We only need to understand the layers beneath the one we are working on</li>
-							<li>Replaceable by similar impl without impacting the other layers</li>
-							<li>Standardisation on the layer level</li>
-							<li>Reusability by more than 1 higher-level layers</li>
-						</ul>
-					</div>
-					<div class="col40">
-						<img src="img/ddd_layers.png" />
-					</div>
-				</div>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1>Layered Architectures</h1>
+      <a
+          href="https://github.com/samzilverberg/layered-architectures">https://github.com/samzilverberg/layered-architectures</a>
+    </section>
+
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
+
+        ## Evolution of layers
+
+        in the beginning there was chaos
+
+        and then we started ordering it into layers...
+
+
+      </script>
+
+      <aside class="notes" data-markdown>
+        - notes 1
+        - notes 2
+      </aside>
+    </section>
+
+
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
+
+        ## Layered Architecture
+
+        Layering is a common practice to separate and organise code units by their role/responsibilities in the system.
+
+        ![](img/layered_layers.png)
+      </script>
+
+      <aside class="notes" data-markdown>
+        - layers on bottom have no knowledge of the layers above using it.
+        - notes 2
+      </aside>
+    </section>
+
+    <section>
+      <!-- .slide: text-align= left -->
+      <div class="row centered">
+        <div class="col60" style="text-align: left;">
+          <h5>In a layered system, each layer:</h5>
+
+          <ul>
+            <li>Depends on the layers beneath it</li>
+            <li>Independent of the layers above it</li>
+          </ul>
+        </div>
+        <div class="col30">
+          <img src="img/ddd_layers.png"/>
+        </div>
+      </div>
+
+      <aside class="notes" data-markdown>
+        - layers on bottom have no knowledge of the layers above using it.
+        - used in a strict way: a layer only knows the layer directly beneath it
+        - used in a flexible way: a layer can access any layer beneath it
+        - flexible: helps avoid "proxy" classes in layers that do nothing
+      </aside>
+    </section>
+
+    <section>
+      <!-- .slide: text-align= left -->
+      <div class="row centered" style="font-size: 80%">
+        <div class="col60" style="text-align: left;">
+          <h5>The Good:</h5>
+          <ul>
+            <li>We only need to understand the layers beneath the one we are working on</li>
+            <li>Replaceable by similar impl without impacting the other layers</li>
+            <li>Standardisation on the layer level</li>
+            <li>Reusability by more than 1 higher-level layers</li>
+          </ul>
+        </div>
+        <div class="col40">
+          <img src="img/ddd_layers.png"/>
+        </div>
+      </div>
 
-				<aside class="notes" data-markdown>
-					-
-				</aside>
-			</section>
+      <aside class="notes" data-markdown>
+        -
+      </aside>
+    </section>
 
-			<section>
-					<!-- .slide: text-align= left -->
-				<div class="row centered">
-					<div class="col60"  style="text-align: left;">
+    <section>
+      <!-- .slide: text-align= left -->
+      <div class="row centered" style="font-size: 80%">
+        <div class="col60" style="text-align: left;">
 
-						<h5>The Bad:</h5>
-						<ul>
-							<li>Propagation of changes: a field added to the UI layer most likely also needs to be added to the DB layer</li>
-							<li>Extra layers can harm performance, especially if in different physical locations.</li>
-						</ul>
+          <h5>The Bad:</h5>
+          <ul>
+            <li>Propagation of changes: a field added to the UI layer most likely also needs to be added to the DB
+              layer
+            </li>
+            <li>Extra layers can harm performance, especially if in different physical locations.</li>
+          </ul>
 
-					</div>
-					<div class="col40">
-						<img src="img/ddd_layers.png" />
-					</div>
-				</div>
+        </div>
+        <div class="col40">
+          <img src="img/ddd_layers.png"/>
+        </div>
+      </div>
 
-				<aside class="notes" data-markdown>
-					- physical locations: layers app and domain are on different servers
-				</aside>
-			</section>
+      <aside class="notes" data-markdown>
+        - physical locations: layers app and domain are on different servers
+      </aside>
+    </section>
 
-			<section>
-					<!-- .slide: text-align= left -->
-				<div class="row centered">
-					<div class="col70"  style="text-align: left;">
+    <section>
+      <div class="row centered" style="font-size: 80%">
+        <div class="col70" style="text-align: left;">
 
-						<h5>The Ugly: Lasagna Architecture Anti Pattern</h5>
+          <h5>The Ugly: Lasagna Architecture Anti Pattern</h5>
 
-						<p>If we:</p>
+          <p>If we:</p>
 
-						<ul>
-							<li>Have a large code-base (monolith?)</li>
-							<li>And try to create the perfect layered setup</li>
-							<li>By over-abstracting</li>
-							<li>By organizing our code according to layers</li>
-						</ul>
+          <ul>
+            <li>Have a large code-base (monolith?)</li>
+            <li>And try to create the perfect layered setup</li>
+            <li>By over-abstracting</li>
+            <li>By organizing our code according to layers</li>
+          </ul>
 
-						<p>We end up with a happy lasagne, in which every small change to a layer reverberates throughout the layers</p>
+          <p>We end up with a happy lasagne, in which every small change to a layer reverberates throughout the
+            layers</p>
 
-						<p>You should try to organize code by components e.g. Product, Payment, Checkout</p>
+          <p>You should try to organize code by components e.g. Product, Payment, Checkout</p>
 
-					</div>
-					<div class="col30">
-						<img src="img/italian_architecture.png" />
-					</div>
-				</div>
+        </div>
+        <div class="col30">
+          <img src="img/italian_architecture.png"/>
+        </div>
+      </div>
 
-				<aside class="notes" data-markdown>
-					- over abstraction = create more layers inside the normal layers for abstractions (db abstraction...)
-				</aside>
-			</section>
+      <aside class="notes" data-markdown>
+        - over abstraction = create more layers inside the normal layers for abstractions (db abstraction...)
+      </aside>
+    </section>
 
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-					### N Tier
+        ### N Tier
 
-					Tiers = physical separation
+        Tiers = physical separation
 
-					Layers = logical separation
-				</script>
-			</section>
+        Layers = logical separation
+      </script>
+    </section>
 
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-					## N=1
+        ## N=1
 
-					Whole system runs on 1 physical tier
+        Whole system runs on 1 physical tier
 
-					![](img/one-tier-prince_of_persia.jpg)
+        ![](img/one-tier-prince_of_persia.jpg)
 
-					example: prince of persia :)
+        example: prince of persia :)
 
-					or you sitting in front of some text editor in 1990
-				</script>
-			</section>
+        or you sitting in front of some text editor in 1990
+      </script>
+    </section>
 
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-					## N=2
+        ## N=2
 
-					![](img/two-tier-architecture.png)
+        ![](img/two-tier-architecture.png)
 
-					this could be a desktop app that directly uses a data source
+        this could be a desktop app that directly uses a data source
 
-					or a basic client - server setup (without anything beyond the server)
-				</script>
-			</section>
+        or a basic client - server setup (without anything beyond the server)
+      </script>
+    </section>
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-					## N=3
+        ## N=3
 
-					![](img/three-tier.png)
+        ![](img/three-tier.png)
 
-					most of web apps where there are is a client - server - db topology
-				</script>
-			</section>
+        most of web apps where with a client - server - db topology
+      </script>
+    </section>
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide:  style="font-size:80%;" -->
 
-					## N=4 and above?
+        ## N=4 and above?
 
-					anything physically separated (or groups of) could be considered a tier:
+        anything physically separated (or groups of) could be considered a tier:
 
-					![](img/n-tier-logical.jpg)
+        ![](img/n-tier-logical.jpg)
 
-					https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier
+        https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier
 
-					<aside class="notes" data-markdown>
-						- physical services can be considered as tiers: printing services
-						- enterprise apps (java) where the app runs ontop of a “business layer” or “service bus” (jboss?). in these each “app” on the bus could be its own tier, and the “bus” is a tier.
-					</aside>
-				</script>
-			</section>
+        <aside class="notes" data-markdown>
+          - physical services can be considered as tiers: printing services
+          - enterprise apps (java) where the app runs ontop of a “business layer” or “service bus” (jboss?). in these
+          each “app” on the bus could be its own tier, and the “bus” is a tier.
+        </aside>
+      </script>
+    </section>
 
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-					### Ports & Adapters
+        ### Ports & Adapters
 
-					aka Hexagonal Architecture
+        aka Hexagonal Architecture
 
-					2005 Alistair Cockburn
-				</script>
-			</section>
+        2005 Alistair Cockburn
+      </script>
+    </section>
 
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section class="align-left" style="font-size:80%;">
+      <p>Introduced as an attempt to avoid common problems with the layered architecture</p>
+      <br/>
 
+      <p>Problems:</p>
+      <ul>
+        <li>Leakage of business logic into presentation layers</li>
+        <li>Dependency and direct instantiation of external libs into business logic</li>
+      </ul>
+
+      <br/>
+      <br/>
+      <br/>
+      <p>This makes the layers harder to replace and the app harder to test.</p>
+      <aside class="notes" data-markdown>
+        - Example with ORM lib:
+        - might be used directly from application logic (even presentation)
+        - needs to be mocked for tests for all layers that use it
+      </aside>
+    </section>
+
+
+    <section style="font-size:80%;">
+      <div class="row">
+        <div class="col30">
+          original layers =>
+          <img src="img/hexagonal-evolve-1.png"/>
+          only center (app) is important,
+          its our core business.<br/>
+          top bottom are entry/exit points.
+        </div>
+        <div class="col30">
+          tilted on side =>
+          <img src="img/hexagonal-evolve-2.png"/>
+          escaping the layered mindset
+        </div>
+        <div class="col30">
+          arranged into hexagon
+          <img src="img/hexagonal-evolve-3.png"/>
+          for convenience
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <img width="82%" height="auto" src="img/hexagonal-evolve-final.png"/>
+    </section>
+
+
+    <section style="font-size:80%;">
+      <div class="row centered">
+        <div class="col60" style="text-align: left;">
+
+          <h5>Definitions</h5>
+          <dl>
+            <dt>Ports</dt>
+            <dd>Interfaces that describe entry/exit points into/out-of the application</dd>
+            <dt>Adapters</dt>
+            <dd>Concrete implementations of the ports</dd>
+            <dt>Primary/Driving Adapters</dt>
+            <dd>They start the action</dd>
+            <dt>Secondary/Driven Adapters</dt>
+            <dd>They react to action the primaries started</dd>
+          </dl>
+        </div>
+        <div class="col40">
+          <img height="400px" width="100%" src="img/hexagonal-evolve-final.png"/>
+        </div>
+      </div>
+
+      <aside class="notes" data-markdown>
+        - dependency injection is used
+        - on left side: port and adapter IN APP "layer"
+        - the "view" depends on the port (interface) and gets injected with adapter
+        - on right side: port in app, adapter in outside
+        - the app defines what it needs in port, and gets injected with the adapter
+        - why? keep all the dependencies pointing inward, keep app in center and isolated
+      </aside>
+    </section>
+
+
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
+
+        ### Onion Architecture
+
+        2008 Jeffery Palermo
+
+        based on hexagonal ideas and adds more details
+      </script>
+
+      <aside class="notes" data-markdown>
+        - notes 1
+        - notes 2
+      </aside>
+    </section>
+
+    <section>
+      <div class="row centered" style="font-size: 80%">
+        <div class="col60" style="text-align: left;">
+          <ul>
+            <li>More internal layers</li>
+            <li>Inspired by DDD</li>
+            <li>Outer layers depend on inner layers</li>
+            <li>Inner layers do not know about outer layers</li>
+            <li>Looks like an onion</li>
+          </ul>
+        </div>
+        <div class="col40">
+          <img src="img/onion-architecture.png"/>
+        </div>
+      </div>
 
+      <aside class="notes" data-markdown>
+        - like p&a:
+        - external layer for delivery mechanisms and infrastructure
+        - internal layer for business logic
+        - isolating the application from infra/ui to allow extension/replacement
+      </aside>
+    </section>
 
 
-				</script>
+    <section data-markdown>
+      <script type="text/template">
+        ### Clean Architecture
 
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
+        2012 Robert C. Martin (AKA Uncle Bob)
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+        Posted in blog and repeated ideas in lectures
+      </script>
+      <aside class="notes" data-markdown>
+        - notes 2
+      </aside>
+    </section>
 
-					### Onion Architecture
 
-					2008 Jeffery Palermo
-				</script>
+    <section>
+      <div class="row centered" style="font-size: 80%">
+        <div class="column" style="text-align: left;">
+          <p>Doesn't really add any new concepts on top of Hexagonal & Onion</p>
+          <p>Just repeats the same with some different terms</p>
+          <p>Explicitly formalizes some implicit rules and the flow of a request with the diagram at the corner</p>
+        </div>
+        <div class="column">
+          <img height="500px" src="img/clean_architecture.jpg"/>
+        </div>
+      </div>
 
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
+      <aside class="notes" data-markdown>
+        - implicit rules:
+        - dependency rule: direction = only inside
+        - Testable: The business rules can be tested without the UI, Database
+      </aside>
+    </section>
 
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+    <section data-markdown>
+      <script type="text/template">
+        The extended version posted later by bob:
 
-					by
-					from around
-				</script>
+        ![](img/clean_architecture_flow.png)
 
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
+      </script>
+    </section>
 
+    <section>
+      <div>Explicit Architecture by Herberto Graca (<a href="https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/">source</a>)</div>
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+      <div><img width="65%" src="img/explicit_architecture.png"></div>
+      <div>
+        ties everything together with explicit project/code structure
+      </div>
+    </section>
 
-					### Clean Architecture
-				</script>
+    <section data-markdown>
+      <script type="text/template">
+        ## shareback example from natcar
 
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
+        or how to start applying these concepts to existing (messy) code
 
+      </script>
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+      <aside class="notes" data-markdown>
+        - notes 1
+        - notes 2
+      </aside>
+    </section>
 
-					Robert C. Martin (AKA Uncle Bob) published his ideas about Clean Architecture back in 2012
-				</script>
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
+        2 ORMs in 1 project !!
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+        want to use both, or rather, transition slowly from having two to one and be able to choose when to use which.
 
-					### shareback example from natcar
+        want to leave a path for total replacement in future.
 
-					2 ORMs in 1 project !!
+      </script>
 
-					want to use both, or rather, transition slowly from having 2 to 1.
+      <aside class="notes" data-markdown>
+        - notes 1
+      </aside>
+    </section>
 
-					want to leave a path for total replacement in future.
 
-					EmployerOps
-				</script>
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-				<aside class="notes" data-markdown>
-					- notes 1
-					- notes 2
-				</aside>
-			</section>
+        #### 2 ORMs:
 
+        SkinnyORM: Employer.find(...)
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+        Employer is both a model and a data fetcher
 
-					```scala
-	package natcar.db.jobs
+        Slick: EmployerRepo.find
 
-	import scala.concurrent.Future
+        EmployerRepo is a data fetcher that returns EmployerDto
 
-	trait EmployerOps[E] {
-		def find(id: Long): Future[Option[E]]
-	}
+      </script>
 
-	trait EmployerFromUserOps[E] {
-		def findOrCreate(name: String): Future[Long]
-	}
+      <aside class="notes" data-markdown>
+        - notes 1
+      </aside>
+    </section>
 
-					```
-				</script>
-			</section>
 
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
 
-			<section data-markdown>
-				<script type="text/template">
-					<!-- .slide: text-align= left -->
+        Introducing EmployerOps
 
-					## More Resources
+        ```scala
+trait EmployerOps[E] {
+  def find(id: Long): Future[Option[E]]
+}
 
-					- [The Software Architecture Chronicles](https://herbertograca.com/2017/07/03/the-software-architecture-chronicles/)
-					- [Onion Architecture at dzone](https://dzone.com/articles/onion-architecture-is-interesting)
-				</script>
-			</section>
+trait EmployerFromUserOps[E] {
+  def findOrCreate(name: String): Future[Long]
+}
 
-			<section>
-				<div>Thanks, questions? ... </div>
-				<p>lets discuss, how is it at your team?</p>
-			</section>
-		</div>
-	</div>
+        ```
 
-	<script src="js/reveal.js"></script>
+      </script>
+    </section>
 
-	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
-			hash: true,
-			width: '80%',
-			height: '100%',
-			// showNotes: true,
-			dependencies: [
-				{ src: 'plugin/markdown/marked.js' },
-				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/highlight/highlight.js' },
-				{ src: 'plugin/notes/notes.js', async: true }
-			]
-		});
-	</script>
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
+
+        Using EmployerOps
+
+        ```scala
+//SkinnyOrm
+class Employer extends EmployerOps[Employer]
+  with EmployerFromUserOps[Employer]
+
+//Slick
+class EmployerRepo extends EmployerOps[Employer]
+
+        ```
+
+      </script>
+    </section>
+
+
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
+
+        Good:
+
+        - our app depends on the trait instead of concrete impl
+        - we inject the implementation we want to use
+        - we can slowly move concrete impl to traits and decide where to impl
+
+        Bad:
+
+        - had to spend time configuring one connection pool that both orms can share
+
+      </script>
+    </section>
+
+
+    <section data-markdown>
+      <script type="text/template">
+        <!-- .slide: text-align= left -->
+
+        ## More Resources
+
+        - [The Software Architecture Chronicles](https://herbertograca.com/2017/07/03/the-software-architecture-chronicles/)
+        - [Onion Architecture at dzone](https://dzone.com/articles/onion-architecture-is-interesting)
+        - [Onion Architecture or Fallacy of Data Layer at DZone](https://dzone.com/articles/stem-in-onion-architecture-or-fallacy-of-datanbspl)
+        - [Clean Architecture at uncle bobs blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+        - [Tool to enforce dependency rules: ArchUnit](https://github.com/TNG/ArchUnit-Examples/blob/master/example-junit5/src/test/java/com/tngtech/archunit/exampletest/junit5/LayerDependencyRulesTest.java)
+
+      </script>
+    </section>
+
+    <section>
+      <div>Thanks, questions? ...</div>
+      <p>lets discuss</p>
+      <ul>
+        <li>how is it at your team?</li>
+        <li></li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		hash: true,
+		width: '80%',
+		height: '100%',
+		// showNotes: true,
+		dependencies: [
+			{src: 'plugin/markdown/marked.js'},
+			{src: 'plugin/markdown/markdown.js'},
+			{src: 'plugin/highlight/highlight.js'},
+			{src: 'plugin/notes/notes.js', async: true}
+		]
+	});
+</script>
 </body>
 
 </html>
