@@ -38,9 +38,11 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### title here
+					### evolution of layers
 
-					just do it
+					in the beginning there was chaos
+					just a big computer running some assembly or low level programing language script
+
 				</script>
 
 				<aside class="notes" data-markdown>
@@ -53,7 +55,101 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### mdown goes here
+					### N Tier
+
+					Tiers = physical separation
+
+				</script>
+
+				<aside class="notes" data-markdown>
+					- layers - logical separation (not physical)
+				</aside>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### N=1
+
+					whole program runs on 1 device
+
+					![](img/one-tier-prince_of_persia.jpg)
+
+					example: prince of persia :)
+
+					or you sitting in front of some text editor in 1990
+				</script>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### N=2
+
+					![](img/two-tier-architecture.png)
+
+					this could be a desktop app that directly uses a data source
+
+					or a basic client - server setup (without anything beyond the server)
+				</script>
+			</section>
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### N=3
+
+					![](img/three-tier.png)
+
+					most of web apps where there are is a client - server - db topology
+				</script>
+			</section>
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### N=4 and above?
+
+					anything physically separated (or groups of) could be considered a tier:
+
+					![](img/n-tier-logical.jpg)
+
+					https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier
+
+					<aside class="notes" data-markdown>
+						- physical services can be considered as tiers: printing services
+						- enterprise apps (java) where the app runs ontop of a “business layer” or “service bus” (jboss?). in these each “app” on the bus could be its own tier, and the “bus” is a tier.
+					</aside>
+				</script>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### Ports & Adapters
+
+					aka Hexagonal Architecture
+				</script>
+
+
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### Onion Architecture
+
+					aka Hexagonal Architecture
 				</script>
 
 				<aside class="notes" data-markdown>
@@ -67,8 +163,55 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					```
-					code example
+					### Clean Architecture
+				</script>
+
+				<aside class="notes" data-markdown>
+					- notes 1
+					- notes 2
+				</aside>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					### shareback example from natcar
+
+					2 ORMs in 1 project !!
+
+					want to use both, or rather, transition slowly from having 2 to 1.
+
+					want to leave a path for total replacement in future.
+
+					EmployerOps
+				</script>
+
+				<aside class="notes" data-markdown>
+					- notes 1
+					- notes 2
+				</aside>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					```scala
+	package natcar.db.jobs
+
+	import scala.concurrent.Future
+
+	trait EmployerOps[E] {
+		def find(id: Long): Future[Option[E]]
+	}
+
+	trait EmployerFromUserOps[E] {
+		def findOrCreate(name: String): Future[Long]
+	}
+
 					```
 				</script>
 			</section>
