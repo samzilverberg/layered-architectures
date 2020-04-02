@@ -1,0 +1,28 @@
+.row {
+    display: flex;
+}
+
+.centered{
+    align-items: center
+}
+
+.column {
+    flex: 50%;
+}
+
+
+.col30 {
+    flex: 30%;
+}
+
+.col40 {
+    flex: 40%;
+}
+
+.col60 {
+    flex: 60%;
+}
+
+.col70 {
+    flex: 70%;
+}

@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
-	<!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
+	<link rel="stylesheet" href="css/my.css">
+<!--	 <link rel="stylesheet" href="css/print/pdf.css">-->
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
@@ -29,7 +30,7 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>layered architectures</h1>
+				<h1>Layered Architectures</h1>
 				<a
 					href="https://github.com/samzilverberg/layered-architectures">https://github.com/samzilverberg/layered-architectures</a>
 			</section>
@@ -38,10 +39,13 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### evolution of layers
+					## Evolution of layers
 
 					in the beginning there was chaos
-					just a big computer running some assembly or low level programing language script
+
+					and then we started ordering it into layers...
+
+
 
 				</script>
 
@@ -51,18 +55,120 @@
 				</aside>
 			</section>
 
+
 			<section data-markdown>
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### N Tier
+					## Layered Architecture
 
-					Tiers = physical separation
+					Layering is a common practice to separate and organise code units by their role/responsibilities in the system.
 
+					![](img/layered_layers.png)
 				</script>
 
 				<aside class="notes" data-markdown>
-					- layers - logical separation (not physical)
+					- layers on bottom have no knowledge of the layers above using it.
+					- notes 2
+				</aside>
+			</section>
+
+			<section>
+					<!-- .slide: text-align= left -->
+				<div class="row centered">
+					<div class="col60"  style="text-align: left;">
+						<h5>In a layered system, each layer:</h5>
+
+						<ul>
+							<li>Depends on the layers beneath it</li>
+							<li>Is independent of the layers on top of it</li>
+						</ul>
+					</div>
+					<div class="col40">
+						<img src="img/ddd_layers.png" />
+					</div>
+				</div>
+
+				<aside class="notes" data-markdown>
+					- layers on bottom have no knowledge of the layers above using it.
+					- used in a strict way: a layer only knows the layer directly beneath it
+					- used in a flexible way: a layer can access any layer beneath it
+					- flexible: helps avoid "proxy" classes in layers that do nothing
+				</aside>
+			</section>
+
+			<section>
+					<!-- .slide: text-align= left -->
+				<div class="row centered">
+					<div class="col60"  style="text-align: left;">
+						<h5>The Good:</h5>
+						<ul>
+							<li>We only need to understand the layers beneath the one we are working on</li>
+							<li>Replaceable by similar impl without impacting the other layers</li>
+							<li>Standardisation on the layer level</li>
+							<li>Reusability by more than 1 higher-level layers</li>
+						</ul>
+					</div>
+					<div class="col40">
+						<img src="img/ddd_layers.png" />
+					</div>
+				</div>
+
+				<aside class="notes" data-markdown>
+					-
+				</aside>
+			</section>
+
+			<section>
+					<!-- .slide: text-align= left -->
+				<div class="row centered">
+					<div class="col60"  style="text-align: left;">
+
+						<h5>The Bad:</h5>
+						<ul>
+							<li>Propagation of changes: a field added to the UI layer most likely also needs to be added to the DB layer</li>
+							<li>Extra layers can harm performance, especially if in different physical locations.</li>
+						</ul>
+
+					</div>
+					<div class="col40">
+						<img src="img/ddd_layers.png" />
+					</div>
+				</div>
+
+				<aside class="notes" data-markdown>
+					- physical locations: layers app and domain are on different servers
+				</aside>
+			</section>
+
+			<section>
+					<!-- .slide: text-align= left -->
+				<div class="row centered">
+					<div class="col70"  style="text-align: left;">
+
+						<h5>The Ugly: Lasagna Architecture Anti Pattern</h5>
+
+						<p>If we:</p>
+
+						<ul>
+							<li>Have a large code-base (monolith?)</li>
+							<li>And try to create the perfect layered setup</li>
+							<li>By over-abstracting</li>
+							<li>By organizing our code according to layers</li>
+						</ul>
+
+						<p>We end up with a happy lasagne, in which every small change to a layer reverberates throughout the layers</p>
+
+						<p>You should try to organize code by components e.g. Product, Payment, Checkout</p>
+
+					</div>
+					<div class="col30">
+						<img src="img/italian_architecture.png" />
+					</div>
+				</div>
+
+				<aside class="notes" data-markdown>
+					- over abstraction = create more layers inside the normal layers for abstractions (db abstraction...)
 				</aside>
 			</section>
 
@@ -71,9 +177,22 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### N=1
+					### N Tier
 
-					whole program runs on 1 device
+					Tiers = physical separation
+
+					Layers = logical separation
+				</script>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					## N=1
+
+					Whole system runs on 1 physical tier
 
 					![](img/one-tier-prince_of_persia.jpg)
 
@@ -88,7 +207,7 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### N=2
+					## N=2
 
 					![](img/two-tier-architecture.png)
 
@@ -102,7 +221,7 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### N=3
+					## N=3
 
 					![](img/three-tier.png)
 
@@ -114,7 +233,7 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
-					### N=4 and above?
+					## N=4 and above?
 
 					anything physically separated (or groups of) could be considered a tier:
 
@@ -137,9 +256,9 @@
 					### Ports & Adapters
 
 					aka Hexagonal Architecture
+
+					2005 Alistair Cockburn
 				</script>
-
-
 			</section>
 
 
@@ -147,9 +266,39 @@
 				<script type="text/template">
 					<!-- .slide: text-align= left -->
 
+
+
+
+				</script>
+
+				<aside class="notes" data-markdown>
+					- notes 1
+					- notes 2
+				</aside>
+			</section>
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
 					### Onion Architecture
 
-					aka Hexagonal Architecture
+					2008 Jeffery Palermo
+				</script>
+
+				<aside class="notes" data-markdown>
+					- notes 1
+					- notes 2
+				</aside>
+			</section>
+
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					by
+					from around
 				</script>
 
 				<aside class="notes" data-markdown>
@@ -172,6 +321,19 @@
 				</aside>
 			</section>
 
+
+			<section data-markdown>
+				<script type="text/template">
+					<!-- .slide: text-align= left -->
+
+					Robert C. Martin (AKA Uncle Bob) published his ideas about Clean Architecture back in 2012
+				</script>
+
+				<aside class="notes" data-markdown>
+					- notes 1
+					- notes 2
+				</aside>
+			</section>
 
 			<section data-markdown>
 				<script type="text/template">
